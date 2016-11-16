@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
     <link href='styles/kendo.common.min.css' rel='stylesheet' type='text/css' />
-    <script src="js/cgm.open.school.min.js?ver=161116.1015"></script>
+    <script src="js/cgm.open.school.min.js?ver=161116.1530"></script>
 </head>
 <body>
 
@@ -73,16 +73,16 @@
                             <a data-role="button" data-icon="settings" data-click="settings_clear_storage">Reset&nbsp;</a>
                         </div>
                     </li>
-                    <li class="thresholds">Norma min:
+                    <li class="thresholds"><span>Norma min:</span>
                                  <input id="norm_min" class="inputNumber" />
                     </li>
-                    <li class="thresholds">Norma max:
-                                 <input id="norm_max" class="inputNumber" />
+                    <li class="thresholds"><span>Norma max:</span>
+                                 <input id="norm_max" class="inputNumber"/>
                     </li>
-                    <li class="thresholds">Hipoglikemia:
+                    <li class="thresholds"><span>Hipoglikemia:</span>
                                 <input id="alert_hipo" class="inputNumber" />
                     </li>
-                    <li class="thresholds">Hiperglikemia:
+                    <li class="thresholds"><span>Hiperglikemia:</span>
                                 <input id="alert_hiper" class="inputNumber" />
                     </li>
                     <li>
@@ -97,7 +97,7 @@
                                 <input id="settings-fetchdata" />
                         </label>
                     </li>
-                    <li id="fetchdataInterval" style="display: none">Co ile minut:
+                    <li id="fetchdataInterval" style="display: none"><span>Co ile minut:</span>
                                  <input id="settings-fetchInterval" class="inputNumber" />
                     </li>
                     <li>
@@ -126,13 +126,10 @@
         </footer>
     </div>
 
-    <audio id="alarm">
-        <source src="sounds/LowAlert.mp3" />
+    <audio id="alarm" class="safari">
         <source src="sounds/LowAlert.mp4" />
-        <source src="sounds/LowAlert.ogg" />
+        <source src="sounds/LowAlert.mp3" />
         <source src="sounds/LowAlert.m4a" />
-        <source src="sounds/LowAlert.m4r" />
-        <source src="sounds/LowAlert.acc" />
     </audio>
 
 </body>
