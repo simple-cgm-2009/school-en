@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
     <link href='styles/kendo.common.min.css' rel='stylesheet' type='text/css' />
-    <script src="js/cgm.open.school.min.js?ver=161117.1245"></script>
+    <script src="js/cgm.open.school.min.js?ver=161117.1400"></script>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
                         <div style="font-size: .75em;" class="km-state-disabled">zmiana</div>
                         <div><span class="monitor-svgspan" style="font-size: 1em;"></span>&nbsp;mg</div>
                     </div>
-                    <div class="monitor-sgv" style="float: left; font-size: 5em; width: 50%;"></div>
+                    <div id="svg" class="monitor-sgv" style="float: left; font-size: 5em; width: 50%;"></div>
                     <div style="float: left; font-size: 1em; width: 25%; text-align: left; padding-top: 1em;">
                         <span class="monitor-icon1 k-font-icon k-i-arrow-s" style="font-size: 2em;">&nbsp;</span>
                         <span class="monitor-icon2 k-font-icon k-i-arrow-s" style="font-size: 2em;">&nbsp;</span>
@@ -33,8 +33,8 @@
         </div>
         <div class="km-widget km-header">
             <nav data-role="navbar">
-                <h1 id="buttonFetchData" data-role="button" data-icon="action" data-click="app_fetch_data">Odświeżanie</h1>
-                <h1 id="buttonStopAlarm" data-role="button" data-icon="action" data-click="stop_alarm_sound" style="display: none;">Stop Alarm</h1>
+                <h1 id="buttonFetchData" data-role="button" data-icon="refresh" data-click="app_fetch_data" style="width:12rem;">Aktualizacja</h1>
+                <h1 id="buttonStopAlarm" data-role="button" data-icon="volume" data-click="stop_alarm_sound" style="width:12rem; display: none;">Stop</h1>
             </nav>
         </div>
     </div>
@@ -102,11 +102,11 @@
                     </li>
                     <li>
                         <label>
-                            <span>Automatyczne odświeżanie:</span>
+                            <span>Auto aktualizacja:</span>
                             <input id="settings-fetchdata" />
                         </label>
                     </li>
-                    <li id="fetchdataInterval" style="display: none"><span>Co ile minut:</span>
+                    <li id="fetchdataInterval" style="display: none"><span>Odstęp w minutach:</span>
                         <input id="settings-fetchInterval" class="inputNumber" />
                     </li>
                     <li>
