@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
     <link href='styles/kendo.common.min.css' rel='stylesheet' type='text/css' />
-    <script src="js/cgm.open.school.min.js?ver=161117.1435"></script>
+    <script src="js/cgm.open.school.min.js?ver=161117.1530"></script>
 </head>
 <body>
 
@@ -34,7 +34,7 @@
         <div class="km-widget km-header">
             <nav data-role="navbar">
                 <h1 id="buttonFetchData" data-role="button" data-icon="refresh" data-click="app_fetch_data" style="width: 95%;">Aktualizacja</h1>
-                <h1 id="buttonStopAlarm" data-role="button" data-icon="volume" data-click="stop_alarm_sound" style="width: 95%; display: none;">Stop alarm</h1>
+                <h1 id="buttonStopAlarm" data-role="button" data-icon="volume" data-click="monitor_stop_alarm" style="width: 95%; display: none;">Stop alarm</h1>
             </nav>
         </div>
     </div>
@@ -88,7 +88,7 @@
                     </li>
                     <li>
                         <label>
-                            <span id="alarmSwitch">Alarm dziękowy:</span>
+                            <span id="alarmSwitch">Alarm:</span>
                             <input id="settings-alarm" />
                         </label>
                     </li>
@@ -96,17 +96,17 @@
                         <span>Test dźwięku:
                         </span>
                         <span style="text-align: right;">
-                            <a id="startAlarmTest" data-role="button" data-icon="sounds" data-click="start_alarm_sound">Start</a>
-                            <a id="stopAlarmTest" data-role="button" data-icon="stop" data-click="stop_alarm_sound" style="display: none;">Stop</a>
+                            <a id="runAlarmTest" data-role="button" data-icon="sounds" data-click="settings_run_alarm">Start</a>
+                            <a id="stopAlarmTest" data-role="button" data-icon="stop" data-click="settings_stop_alarm" style="display: none;">Stop</a>
                         </span>
                     </li>
                     <li>
                         <label>
-                            <span>Auto aktualizacja:</span>
+                            <span>Aktualizacja automatyczna:</span>
                             <input id="settings-fetchdata" />
                         </label>
                     </li>
-                    <li id="fetchdataInterval" style="display: none"><span>Odstęp w minutach:</span>
+                    <li id="fetchdataInterval" class="toRight" style="display: none"><span>Co ile minut:</span>
                         <input id="settings-fetchInterval" class="inputNumber" />
                     </li>
                     <li>
