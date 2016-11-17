@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
     <link href='styles/kendo.common.min.css' rel='stylesheet' type='text/css' />
-    <script src="js/cgm.open.school.min.js?ver=161117.0935"></script>
+    <script src="js/cgm.open.school.min.js?ver=161117.1245"></script>
 </head>
 <body>
 
@@ -33,7 +33,8 @@
         </div>
         <div class="km-widget km-header">
             <nav data-role="navbar">
-                <h1 data-role="button" data-icon="action" data-click="app_fetch_data">Odświeżanie</h1>
+                <h1 id="buttonFetchData" data-role="button" data-icon="action" data-click="app_fetch_data">Odświeżanie</h1>
+                <h1 id="buttonStopAlarm" data-role="button" data-icon="action" data-click="stop_alarm_sound" style="display: none;">Stop Alarm</h1>
             </nav>
         </div>
     </div>
@@ -74,31 +75,39 @@
                         </div>
                     </li>
                     <li class="thresholds"><span>Norma min:</span>
-                                 <input id="norm_min" class="inputNumber" />
+                        <input id="norm_min" class="inputNumber" />
                     </li>
                     <li class="thresholds"><span>Norma max:</span>
-                                 <input id="norm_max" class="inputNumber"/>
+                        <input id="norm_max" class="inputNumber" />
                     </li>
                     <li class="thresholds"><span>Hipoglikemia:</span>
-                                <input id="alert_hipo" class="inputNumber" />
+                        <input id="alert_hipo" class="inputNumber" />
                     </li>
                     <li class="thresholds"><span>Hiperglikemia:</span>
-                                <input id="alert_hiper" class="inputNumber" />
+                        <input id="alert_hiper" class="inputNumber" />
                     </li>
                     <li>
                         <label>
-                            <span id="alarmSwitch">Alarm dźwiękowy:</span>
-                                <input id="settings-alarm" />
+                            <span id="alarmSwitch">Alarm dziękowy:</span>
+                            <input id="settings-alarm" />
                         </label>
+                    </li>
+                    <li id="alarmTest" style="display: none">
+                        <span>Test dźwięku:
+                        </span>
+                        <span style="text-align: right;">
+                            <a id="startAlarmTest" data-role="button" data-icon="sounds" data-click="start_alarm_sound">Start</a>
+                            <a id="stopAlarmTest" data-role="button" data-icon="stop" data-click="stop_alarm_sound" style="display: none;">Stop</a>
+                        </span>
                     </li>
                     <li>
                         <label>
                             <span>Automatyczne odświeżanie:</span>
-                                <input id="settings-fetchdata" />
+                            <input id="settings-fetchdata" />
                         </label>
                     </li>
                     <li id="fetchdataInterval" style="display: none"><span>Co ile minut:</span>
-                                 <input id="settings-fetchInterval" class="inputNumber" />
+                        <input id="settings-fetchInterval" class="inputNumber" />
                     </li>
                     <li>
                         <label id="deviceInfo"></label>
@@ -115,8 +124,8 @@
                 <a class="monitor-demo" data-role="button" data-icon="home" data-enable="false" data-align="right" style="display: none"></a>
                 <a class="monitor-active" data-role="button" data-icon="camera" data-enable="false" data-align="right" style="display: none"></a>
             </nav>
-         <div id="errorMessage" class="app_message_notification error-message" style="display: none;"></div>
-       </header>
+            <div id="errorMessage" class="app_message_notification error-message" style="display: none;"></div>
+        </header>
         <footer data-role="footer">
             <div id="default-tabstrip">
                 <a href="#monitor-view" data-icon="camera">Monitor</a>
