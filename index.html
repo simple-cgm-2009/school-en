@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
     <link href='styles/kendo.common.min.css' rel='stylesheet' type='text/css' />
-    <script src="js/cgm.open.school.min.js?ver=161117.1400"></script>
+    <script src="js/cgm.open.school.min.js?ver=161117.1415"></script>
 </head>
 <body>
 
@@ -33,8 +33,8 @@
         </div>
         <div class="km-widget km-header">
             <nav data-role="navbar">
-                <h1 id="buttonFetchData" data-role="button" data-icon="refresh" data-click="app_fetch_data" style="width:12rem;">Aktualizacja</h1>
-                <h1 id="buttonStopAlarm" data-role="button" data-icon="volume" data-click="stop_alarm_sound" style="width:12rem; display: none;">Stop</h1>
+                <h1 id="buttonFetchData" data-role="button" data-icon="refresh" data-click="app_fetch_data" style="width: 95%;">Aktualizacja</h1>
+                <h1 id="buttonStopAlarm" data-role="button" data-icon="volume" data-click="stop_alarm_sound" style="width: 95%; display: none;">Stop</h1>
             </nav>
         </div>
     </div>
@@ -74,16 +74,16 @@
                             <a data-role="button" data-icon="settings" data-click="settings_clear_storage">Reset&nbsp;</a>
                         </div>
                     </li>
-                    <li class="thresholds"><span>Norma min:</span>
+                    <li class="thresholds toRight"><span>Norma min:</span>
                         <input id="norm_min" class="inputNumber" />
                     </li>
-                    <li class="thresholds"><span>Norma max:</span>
+                    <li class="thresholds toRight"><span>Norma max:</span>
                         <input id="norm_max" class="inputNumber" />
                     </li>
-                    <li class="thresholds"><span>Hipoglikemia:</span>
+                    <li class="thresholds toRight"><span>Hipoglikemia:</span>
                         <input id="alert_hipo" class="inputNumber" />
                     </li>
-                    <li class="thresholds"><span>Hiperglikemia:</span>
+                    <li class="thresholds toRight"><span>Hiperglikemia:</span>
                         <input id="alert_hiper" class="inputNumber" />
                     </li>
                     <li>
@@ -92,7 +92,7 @@
                             <input id="settings-alarm" />
                         </label>
                     </li>
-                    <li id="alarmTest" style="display: none">
+                    <li id="alarmTest" class="toRight" style="display: none">
                         <span>Test dźwięku:
                         </span>
                         <span style="text-align: right;">
