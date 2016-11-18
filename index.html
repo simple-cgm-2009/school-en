@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
     <link href='styles/kendo.common.min.css' rel='stylesheet' type='text/css' />
-    <script src="js/cgm.open.school.min.js?ver=161118.1150"></script>
+    <script src="js/cgm.open.school.min.js?ver=161118.1500"></script>
 </head>
 <body>
 
@@ -29,6 +29,10 @@
             </div>
             <div id="monitor-nodata" style="display: none;">
                 <div class="monitor-message" style="color: crimson;">Brak danych</div>
+            </div>
+            <div style="display: none">
+                <a id="runMonitorAlarmTest" data-role="button" data-icon="sounds" data-click="monitor_run_alarm">Start</a>
+                <a id="stopMonitorAlarmTest" data-role="button" data-icon="stop" data-click="monitor_stop_alarm">Stop</a>
             </div>
         </div>
         <div class="km-widget km-header">
@@ -86,7 +90,7 @@
                     <li class="thresholds toRight"><span>Hiperglikemia:</span>
                         <input id="alert_hiper" class="inputNumber" />
                     </li>
-                    <li>
+                    <li id="alarmEnabled" style="display: none">
                         <label>
                             <span id="alarmSwitch">Alarm:</span>
                             <input id="settings-alarm" />
@@ -109,7 +113,7 @@
                     <li id="fetchdataInterval" class="toRight" style="display: none"><span>Co ile minut:</span>
                         <input id="settings-fetchInterval" class="inputNumber" />
                     </li>
-                    <li>
+                    <li id="deviceInfoLabel" style="display: none;">
                         <label id="deviceInfo"></label>
                     </li>
                 </ul>
@@ -142,7 +146,6 @@
         Your browser does not support the audio element.
     </audio>
 
-    <iframe src="worker.html" style="display: none;"></iframe>
     <script>
         function worker_background_function() {
             if (fetch_data()) {
