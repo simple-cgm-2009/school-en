@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
     <link href='styles/kendo.common.min.css' rel='stylesheet' type='text/css' />
-    <script src="js/cgm.open.school.min.js?ver=161119.1300"></script>
+    <script src="js/cgm.open.school.min.js?ver=161120.1930"></script>
 </head>
 <body>
 
@@ -30,12 +30,9 @@
             <div id="monitor-nodata" style="display: none;">
                 <div class="monitor-message" style="color: crimson;">Brak danych</div>
             </div>
-            <div style="display: none">
-                <a id="runMonitorAlarmTest" data-role="button" data-icon="sounds" data-click="monitor_run_alarm">Start</a>
-                <a id="stopMonitorAlarmTest" data-role="button" data-icon="stop" data-click="monitor_stop_alarm">Stop</a>
-            </div>
         </div>
         <div class="km-widget km-header">
+            <div id="nextUpdateTime" style="margin: 0.7rem; font-size: 0.75rem;"></div>
             <nav data-role="navbar">
                 <h1 id="buttonFetchData" data-role="button" data-icon="refresh" data-click="app_fetch_data" style="width: 95%;">Aktualizacja</h1>
                 <h1 id="buttonStopAlarm" data-role="button" data-icon="volume" data-click="monitor_stop_alarm" style="width: 95%; display: none;">Stop alarm</h1>
@@ -124,6 +121,8 @@
     <div id="default-layout" data-role="layout" data-id="default-layout">
         <header data-role="header">
             <nav data-role="navbar">
+                <a id="runMonitorAlarmTest" data-role="button" data-icon="volume" data-click="monitor_run_alarm" data-align="left" style="display: none"></a>
+                <a id="stopMonitorAlarmTest" data-role="button" data-icon="stop" data-click="monitor_stop_alarm" data-align="left" style="display: none"></a>
                 <span id="title" data-role="view-title"></span>
                 <a class="monitor-demo" data-role="button" data-icon="home" data-enable="false" data-align="right" style="display: none"></a>
                 <a class="monitor-active" data-role="button" data-icon="camera" data-enable="false" data-align="right" style="display: none"></a>
@@ -147,6 +146,7 @@
     <script>
         function worker_background_function() {
             if (fetch_data()) {
+                app_next_update();
                 app_fetch_data();
             }
         }
