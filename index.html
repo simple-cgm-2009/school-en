@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
     <link href='styles/kendo.common.min.css' rel='stylesheet' type='text/css' />
-    <script src="js/cgm.open.school.min.js?ver=161209.1530"></script>
+    <script src="js/cgm.open.school.min.js?ver=170104.1600"></script>
 </head>
 <body>
 
@@ -15,9 +15,9 @@
                 <div class="monitor-message" style="display: none;"></div>
                 <div style="padding: 1em 2em 0em 2em;">
                     <div style="float: left; width: 25%; padding-top: 0.1em;">
-                        <div style="font-size: .75em;" class="km-state-disabled">z przed</div>
+                        <div style="font-size: .75em;" class="km-state-disabled">min ago</div>
                         <div style="margin-bottom: .75em;"><span class="monitor-timespan" style="font-size: 1em;"></span>&nbsp;min</div>
-                        <div style="font-size: .75em;" class="km-state-disabled">zmiana</div>
+                        <div style="font-size: .75em;" class="km-state-disabled">shift</div>
                         <div><span class="monitor-svgspan" style="font-size: 1em;"></span>&nbsp;mg</div>
                     </div>
                     <div id="svg" class="monitor-sgv" style="float: left; font-size: 5em; width: 50%;"></div>
@@ -29,19 +29,19 @@
                 <div class="monitor-alert-message" style="display: none;"></div>
             </div>
             <div id="monitor-nodata" style="display: none;">
-                <div class="monitor-message" style="color: crimson;">Brak danych</div>
+                <div class="monitor-message" style="color: crimson;">No data to display</div>
             </div>
         </div>
         <div class="km-widget km-header">
             <div id="nextUpdateTime" style="margin: 0.7rem; font-size: 0.75rem;"></div>
             <nav data-role="navbar">
-                <h1 id="buttonFetchData" data-role="button" data-icon="refresh" data-click="app_fetch_data" style="width: 95%;">Aktualizacja</h1>
+                <h1 id="buttonFetchData" data-role="button" data-icon="refresh" data-click="app_fetch_data" style="width: 95%;">Refresh</h1>
                 <h1 id="buttonStopAlarm" data-role="button" data-icon="volume" data-click="monitor_stop_alarm" style="width: 95%; display: none;">Stop alarm</h1>
             </nav>
         </div>
     </div>
 
-    <div id="settings-view" data-role="view" data-title="Ustawienia" data-layout="default-layout" data-init="settings_init" data-show="settings_show" data-before-hide="settings_save">
+    <div id="settings-view" data-role="view" data-title="Settings" data-layout="default-layout" data-init="settings_init" data-show="settings_show" data-before-hide="settings_save">
         <ul data-role="listview" data-style="inset" data-type="group">
             <li>
                 <ul>
@@ -57,9 +57,9 @@
                     <li>
                         <div>
                             <ul id="settings-skin" class="km-navbar">
-                                <li>Dzień
+                                <li>Day
                                 </li>
-                                <li>&nbsp;Noc&nbsp;
+                                <li>&nbsp;Night&nbsp;
                                 </li>
                             </ul>
                         </div>
@@ -72,20 +72,20 @@
                     </li>
                     <li>
                         <div style="text-align: center;">
-                            <a data-role="button" data-icon="toprated" data-click="settings_save">Zapisz</a>
+                            <a data-role="button" data-icon="toprated" data-click="settings_save">Save</a>
                             <a data-role="button" data-icon="settings" data-click="settings_clear_storage">Reset&nbsp;</a>
                         </div>
                     </li>
-                    <li class="thresholds toRight"><span>Norma min:</span>
+                    <li class="thresholds toRight"><span>Norm min:</span>
                         <input id="norm_min" class="inputNumber" />
                     </li>
-                    <li class="thresholds toRight"><span>Norma max:</span>
+                    <li class="thresholds toRight"><span>Norm max:</span>
                         <input id="norm_max" class="inputNumber" />
                     </li>
-                    <li class="thresholds toRight"><span>Hipoglikemia:</span>
+                    <li class="thresholds toRight"><span>Hipo:</span>
                         <input id="alert_hipo" class="inputNumber" />
                     </li>
-                    <li class="thresholds toRight"><span>Hiperglikemia:</span>
+                    <li class="thresholds toRight"><span>Hiper:</span>
                         <input id="alert_hiper" class="inputNumber" />
                     </li>
                     <li id="alarmEnabled" style="display: none">
@@ -96,25 +96,25 @@
                     </li>
                     <li id="alarmMode" style="display: none">
                         <label>
-                            <span id="alarmModeSwitch">Tonacja klasyczna:</span>
+                            <span id="alarmModeSwitch">Another sound:</span>
                             <input id="settings-alarmMode" />
                         </label>
                     </li>
                     <li id="alarmTest" class="toRight" style="display: none">
-                        <span>Test dźwięku:
+                        <span>Sound test:
                         </span>
                         <span style="text-align: right;">
-                            <a id="runAlarmTest" data-role="button" data-icon="sounds" data-click="settings_run_alarm">Start</a>
+                            <a id="runAlarmTest" data-role="button" data-icon="sounds" data-click="settings_run_alarm">Run</a>
                             <a id="stopAlarmTest" data-role="button" data-icon="stop" data-click="settings_stop_alarm" style="display: none;">Stop</a>
                         </span>
                     </li>
                     <li>
                         <label>
-                            <span>Aktualizacja automatyczna:</span>
+                            <span>Auto refresh:</span>
                             <input id="settings-fetchdata" />
                         </label>
                     </li>
-                    <li id="fetchdataInterval" class="toRight" style="display: none"><span>Co ile minut:</span>
+                    <li id="fetchdataInterval" class="toRight" style="display: none"><span>Interval min:</span>
                         <input id="settings-fetchInterval" class="inputNumber" />
                     </li>
                     <li id="deviceInfoLabel" style="display: none;">
@@ -140,8 +140,8 @@
         <footer data-role="footer">
             <div id="default-tabstrip">
                 <a href="#monitor-view" data-icon="camera">Monitor</a>
-                <a href="#settings-view" data-icon="settings">Ustawienia</a>
-                <a href="license.html" data-icon="info">Informacje</a>
+                <a href="#settings-view" data-icon="settings">Settings</a>
+                <a href="license.html" data-icon="info">About</a>
             </div>
         </footer>
     </div>
